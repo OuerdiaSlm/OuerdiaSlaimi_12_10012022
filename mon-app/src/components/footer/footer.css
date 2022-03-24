@@ -1,0 +1,8 @@
+.footer-div{
+  transform: rotate(-90deg);
+  margin-top: 150px;
+}
+.footer-div p{
+  color: white;
+  width: 200px;
+}

@@ -1,0 +1,71 @@
+.global-div-header{
+  margin: auto;
+}
+
+.Barre-navigation{
+  width: 100%;
+  height: 91px;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #020203;
+  color: white;
+}
+
+.Barre-text {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.logo{
+  width: 243px;
+  height: 79px;
+  object-fit: cover;
+  padding: 10px;
+}
+
+.headerNav-li{
+  list-style: none;
+  text-decoration: none;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.headerNav-li:hover{
+  cursor:pointer;
+}
+.menu-link {
+  display: flex;
+  outline: none;
+  text-decoration: none;
+}
+
+.menu-link:visited {
+  color: white;
+}
+
+
+/*Responsive*/
+@media screen and (max-width: 1240px) {
+	.App-header{
+    margin: 0px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+
+  .logo{
+    width: 100px;
+  }
+  .App-header {
+    font-size: calc(5px + 2vmin);
+  }
+
+}
+
+
+

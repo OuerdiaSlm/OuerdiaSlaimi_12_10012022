@@ -1,0 +1,32 @@
+.ScoreContainer{
+    height: 263px;
+    width: 258px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    display: block;
+    align-items: center;
+    /* background-color: green; */
+    background-color: #FBFBFB;
+}
+
+.ScoreLegend{
+  height: 50%;
+  width: 100%;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ScoreLegend-container{
+ margin-top: -50%;
+}
+
+/* .score-graph{
+  position: absolute;
+} */

@@ -1,0 +1,28 @@
+.aside-icones{
+  display: flex;
+  flex-direction: column;
+ 
+}
+.icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 6px;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: -30%;
+}
+.dagi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 1024px;
+  width: 117px;
+  padding-top: 50px;
+  border-radius: 0px;
+  background: #020203;
+}

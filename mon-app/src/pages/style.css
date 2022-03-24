@@ -1,0 +1,30 @@
+.aside{
+  display: flex;
+}
+
+.graph{
+  width: 73%;
+}
+.hello-activity{
+  width: 100%;
+}
+.Sessions-Performance-Score{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.state-global-div{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 90px;
+  margin-top: 0;
+}
+
+@media screen and (max-width:1438px)and (min-width:600px){
+  .graph{
+    width: 99%;
+  }
+}

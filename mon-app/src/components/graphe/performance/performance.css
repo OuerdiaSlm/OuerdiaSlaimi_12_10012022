@@ -1,0 +1,13 @@
+.performance-graph{
+  background-color: #282D30;
+  height: 263px;
+  width: 258px;
+  left: 0px;
+  top: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  display: block;
+  align-items: center;
+}

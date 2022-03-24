@@ -1,0 +1,16 @@
+.hello-div{
+  margin:90px;
+  margin-bottom: 70px;
+  margin-top: 0px;
+}
+.title{
+  font-size: 48px;
+}
+.message{
+  font-size: 18px;
+  margin-top: -20px;
+  font-weight: 400;
+}
+.firstName{
+  color: #FF0000;
+}

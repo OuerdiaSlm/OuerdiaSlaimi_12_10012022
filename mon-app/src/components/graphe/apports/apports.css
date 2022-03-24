@@ -1,0 +1,74 @@
+.Apports-section{
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 50px;
+  justify-content: space-between;
+}
+.apports-div {
+  height: 124px;
+  width: 258px;
+  left: 0px;
+  top: 0px;
+  border-radius: 5px;
+  background-color: #FBFBFB;
+  margin-bottom: 30px;
+}
+.apports-infos{
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  margin-bottom: 90px;
+  padding-left: 20px;
+}
+
+.apports-title{
+  font-size: 20px;
+  font-weight: 700 ;
+  
+}
+.apports-title-description{
+  height: 60px;
+    width: 60px;
+    padding: 15px;
+}
+.apports-description{
+  font-size: 14px;
+  color: #74798C;
+}
+
+.energy, .apple, .chicken, .cheeseburger {
+  height: 60px;
+  width: 60px;
+  left: 32px;
+  top: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.energy {
+  background-color: #ff000012;
+}
+.chicken {
+  background-color: #4AB8FF1A;
+}
+.apple {
+  background-color: #f9ce231f;
+}
+.cheeseburger {
+  background-color: #FD51811A;
+}
+
+@media screen and (max-width:1438px)and (min-width:600px){
+  .Apports-section{
+    flex-direction: row;
+    margin-left: 0px;
+    margin-top: 25px;
+  }
+}
