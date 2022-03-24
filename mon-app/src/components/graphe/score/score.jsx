@@ -63,7 +63,7 @@ function Score() {
       <div className="ScoreLegend-container">
         <p className="ScoreLegend">{renderLabel}</p>
         <p className="ScoreLegend">
-          de votre 
+          de votre <br/>
           objectif
         </p>
       </div>
