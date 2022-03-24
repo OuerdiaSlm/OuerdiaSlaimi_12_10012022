@@ -1,18 +1,17 @@
 .ScoreContainer{
-    height: 263px;
-    width: 258px;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    display: block;
-    align-items: center;
-    /* background-color: green; */
-    background-color: #FBFBFB;
+  height: 263px;
+  width: 258px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  display: block;
+  align-items: center;
+  background-color: #FBFBFB;
 }
 
 .ScoreLegend{
@@ -26,7 +25,3 @@
 .ScoreLegend-container{
  margin-top: -50%;
 }
-
-/* .score-graph{
-  position: absolute;
-} */

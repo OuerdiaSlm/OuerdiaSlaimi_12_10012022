@@ -57,14 +57,12 @@
 }
 
 @media screen and (max-width: 830px) {
-
   .logo{
     width: 100px;
   }
   .App-header {
     font-size: calc(5px + 2vmin);
   }
-
 }
 
 

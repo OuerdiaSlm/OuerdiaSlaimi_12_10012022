@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import './activity.css';
 import ovalNoir from '../../assets/ovalNoir.png';
 import ovalRouge from '../../assets/ovalRouge.png';
@@ -45,8 +44,7 @@ import {
               <Bar yAxisId="kilogram" dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]}/>
               <Bar yAxisId="calories" dataKey="calories" fill="#E60000" barSize={7} radius={[50, 50, 0, 0]}/>
           </BarChart> 
-        </ResponsiveContainer>
-        
+        </ResponsiveContainer>   
       </section>
     )
   }

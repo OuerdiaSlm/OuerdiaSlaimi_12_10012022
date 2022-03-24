@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import './sessions.css';
 import { getUserAverageSessions } from'../../../datas/datas';
 import {
@@ -38,7 +37,6 @@ import {
           }
         });
         setData(formatData);
-        // setData(request.data.sessions);
       };
       getData();
     }, []);

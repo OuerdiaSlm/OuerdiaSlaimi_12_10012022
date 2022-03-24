@@ -28,9 +28,7 @@ import Footer from "../footer/footer";
         <div>
           <Footer/>
         </div>
-        
-      </div>
-      
+      </div> 
     )
   }
   export default HeaderLeft;

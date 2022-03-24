@@ -4,9 +4,7 @@ import { getUserInfos } from'../../../datas/datas';
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import './score.css';
 
-export default function Score({ data }) {
-
-
+function Score() {
   const [dataUser, setData] = useState([]) 
   useEffect(()=>{
     const id = 12
@@ -74,3 +72,4 @@ export default function Score({ data }) {
     </section>
   );
 }
+export default Score;

@@ -1,7 +1,6 @@
 .aside-icones{
   display: flex;
   flex-direction: column;
- 
 }
 .icon{
   display: flex;

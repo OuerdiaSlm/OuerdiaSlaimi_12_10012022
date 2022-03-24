@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 import './hello.css';
-import axios from "axios";
 import { getUserInfos } from'../../datas/datas';
 
   function Hello() {
