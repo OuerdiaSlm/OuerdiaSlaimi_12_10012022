@@ -13,12 +13,11 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-  function Activity() {
+  function Activity({choice}) {
     const [data, setData] = useState([]) 
     useEffect(()=>{
-      const id = 12
       const getData = async () => {
-        const request = await getUserActivity(id);
+        const request = await getUserActivity(choice);
         if (!request) return alert('data error');
         setData(request.data.sessions);
       };

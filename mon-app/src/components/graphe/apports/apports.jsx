@@ -6,12 +6,11 @@ import chicken from "../../../assets/chicken.png";
 import cheeseburger from "../../../assets/cheeseburger.png";
 import './apports.css';
 
-  function Apports() {
+  function Apports({choice}) {
     const [dataUser, setData] = useState([]) 
     useEffect(()=>{
-      const id = 12
       const getData = async () => {
-        const request = await getUserInfos(id);
+        const request = await getUserInfos(choice);
         if (!request) return alert('data error');
         setData(request.data.keyData);
         console.log(request.data.keyData)

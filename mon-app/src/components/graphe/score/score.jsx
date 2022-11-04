@@ -3,14 +3,20 @@ import { getUserInfos } from'../../../datas/datas';
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import './score.css';
 
-function Score() {
+/**
+ * @param { string } dataUser
+ * @param { string } setData
+ * @returns 
+ */
+
+function Score({choice}) {
   const [dataUser, setData] = useState([]) 
   useEffect(()=>{
-    const id = 12
     const getData = async () => {
-      const request = await getUserInfos(id);
+      const request = await getUserInfos(choice);
       if (!request) return alert('data error');
       setData(request.data);
+      console.log(setData)
       console.log(request.data)
     };
     getData();
@@ -25,7 +31,6 @@ function Score() {
     { name: "restScoreColor", value: rest, fillColor: `white` },
   ];
   const renderLabel = todayScore * 100 + "%";
-  console.log(renderLabel);
   const data01 = [{ name: "A", value: 100 }];
 
   return (

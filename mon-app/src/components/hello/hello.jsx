@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import './hello.css';
 import { getUserInfos } from'../../datas/datas';
 
-  function Hello() {
+  function Hello({choice}) {
     const [dataUser, setData] = useState([]) 
     useEffect(()=>{
-      const id = 12
+       
       const getData = async () => {
-        const request = await getUserInfos(id);
+        const request = await getUserInfos(choice);
         if (!request) return alert('data error');
         setData(request.data.userInfos);
         console.log(request.data)

@@ -8,24 +8,14 @@ import {
   Radar,
 } from "recharts";
 
-  function Performance() {
-    const [data, setData] = useState([]) 
-    useEffect(()=>{
-      const id = 12
-      const getData = async () => {
-        const request = await getUserPerformance(id);
-        if (!request) return alert('data error');
-        setData(request.data.data);
-      };
-      getData();
-    }, []);
+  function Performance({perf}) {
 
     return (
       <section className="performance-graph">
-          <RadarChart width={258} height={263} data={data.data} cx="50%" cy="50%" outerRadius="80%" >
+          <RadarChart width={258} height={263} data={perf} cx="50%" cy="50%" outerRadius="80%" >
             <PolarGrid />
             <PolarAngleAxis tick={{ fill: 'white', fontSize: 12,   }}/>
-            <Radar data={data} dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
+            <Radar data={perf.data} dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
           </RadarChart>
       </section>
     )

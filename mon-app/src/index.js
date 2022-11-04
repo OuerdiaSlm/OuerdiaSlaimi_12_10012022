@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/home';
+import UserChoice from './pages/userChoice';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route exact path="/"  element={<Home/>}/>
+        <Route exact path="/"  element={<UserChoice/>}/>
+        <Route exact path="/home/:id"  element={<Home/>}/>
         {/* <Route path="/*" element={<NotFound/>}/> */}
       </Routes>
     </Router>
