@@ -1,9 +1,11 @@
 import React from "react"
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import './score.css';
+import { PropTypes } from 'prop-types';
 
 /**
- * @param { number } scoreP
+ * @function Score
+ * @param { number } scoreP: contains the Todayscore of the user
  * @returns 
  */
 
@@ -61,3 +63,7 @@ function Score({scoreP}) {
   );
 }
 export default Score;
+
+Score.propTypes = {
+  scoreP: PropTypes.any.isRequired,
+};

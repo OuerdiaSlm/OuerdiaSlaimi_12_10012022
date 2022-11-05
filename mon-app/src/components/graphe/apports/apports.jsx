@@ -4,11 +4,18 @@ import apple from "../../../assets/apple.png";
 import chicken from "../../../assets/chicken.png";
 import cheeseburger from "../../../assets/cheeseburger.png";
 import './apports.css';
+import { PropTypes } from 'prop-types';
+
+/**
+ * @function Apports
+ * @param { array } apports: contains user information (calorieCount-carbohydrateCount-lipidCount-proteinCount)
+ * @returns 
+ */
 
   function Apports({apports}) {
+    console.log(apports)
     return (
       <div className="Apports-section">   
-        {console.log(apports)} 
         <div className="apports-div">
           <div className="apports-infos">
             <div className="energy"> 
@@ -61,3 +68,8 @@ import './apports.css';
     )
   }
   export default Apports;
+
+
+  Apports.propTypes = {
+    apports: PropTypes.any.isRequired,
+  };

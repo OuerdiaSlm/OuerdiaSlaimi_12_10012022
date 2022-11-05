@@ -11,6 +11,13 @@ import {
   Bar,
   ResponsiveContainer
 } from "recharts";
+import { PropTypes } from 'prop-types';
+
+/**
+ * @function Activity
+ * @param { array } activity: contains data of daily activity (day-kilogram-calories)
+ * @returns 
+ */
 
   function Activity({activity}) {
     return (
@@ -37,3 +44,7 @@ import {
     )
   }
   export default Activity;
+
+  Activity.propTypes = {
+    activity: PropTypes.array.isRequired,
+  };

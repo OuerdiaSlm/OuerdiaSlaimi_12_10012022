@@ -6,9 +6,16 @@ import {
   PolarAngleAxis,
   Radar,
 } from "recharts";
+import { PropTypes } from 'prop-types';
+
+/**
+ * @function Performance
+ * @param { array } perf: contains information of performance (cardio-energy-endurance-strength and his values)
+ * @returns 
+ */
 
   function Performance({perf}) {
-
+    console.log(perf)
     return (
       <section className="performance-graph">
           <RadarChart width={258} height={263} data={perf} cx="50%" cy="50%" outerRadius="80%" >
@@ -20,3 +27,7 @@ import {
     )
   }
   export default Performance;
+
+  Performance.propTypes = {
+    perf: PropTypes.array.isRequired,
+  };

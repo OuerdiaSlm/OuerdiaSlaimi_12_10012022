@@ -6,8 +6,16 @@ import {
   LineChart,
   Line,
 } from "recharts";
+import { PropTypes } from 'prop-types';
+
+/**
+ * @function Sessions
+ * @param { Array } session: contains data of average-sessions (day-sessionLength)
+ * @returns 
+ */
 
   function Sessions({session}) {
+    console.log(session)
     return (
       <section className="average-sessions-section">
         <div className="session-title">
@@ -24,3 +32,7 @@ import {
     )
   }
   export default Sessions;
+
+  Sessions.propTypes = {
+    session: PropTypes.array.isRequired,
+  };
