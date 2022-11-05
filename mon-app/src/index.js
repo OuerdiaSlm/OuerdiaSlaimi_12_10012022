@@ -5,6 +5,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/home';
 import UserChoice from './pages/userChoice';
+import NotFound from './pages/notFound';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,7 +13,7 @@ ReactDOM.render(
       <Routes>
         <Route exact path="/"  element={<UserChoice/>}/>
         <Route exact path="/home/:id"  element={<Home/>}/>
-        {/* <Route path="/*" element={<NotFound/>}/> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   </React.StrictMode>,

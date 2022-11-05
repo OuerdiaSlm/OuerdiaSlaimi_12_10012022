@@ -19,6 +19,15 @@
   color: #FF0000;
 }
 
+.error{
+  font-size: 100px;
+}
+.notFound{
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
 .graph{
   width: 73%;
 }
