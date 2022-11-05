@@ -1,29 +1,14 @@
-import React, { useEffect, useState } from "react"
-import { getUserInfos } from'../../../datas/datas';
+import React from "react"
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import './score.css';
 
 /**
- * @param { string } dataUser
- * @param { string } setData
+ * @param { number } scoreP
  * @returns 
  */
 
-function Score({choice}) {
-  const [dataUser, setData] = useState([]) 
-  useEffect(()=>{
-    const getData = async () => {
-      const request = await getUserInfos(choice);
-      if (!request) return alert('data error');
-      setData(request.data);
-      console.log(setData)
-      console.log(request.data)
-    };
-    getData();
-  }, []);
-
-  const todayScore = dataUser.todayScore;
-  console.log(dataUser.todayScore);
+function Score({scoreP}) {
+  const todayScore = scoreP;
   const scorePerCent = todayScore * 100;
   const rest = 100 - scorePerCent;
   const score = [

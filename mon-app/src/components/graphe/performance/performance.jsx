@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import './performance.css';
-import { getUserPerformance } from'../../../datas/datas';
 import {
   RadarChart,
   PolarGrid,

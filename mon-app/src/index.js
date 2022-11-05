@@ -15,7 +15,6 @@ ReactDOM.render(
         {/* <Route path="/*" element={<NotFound/>}/> */}
       </Routes>
     </Router>
-    
   </React.StrictMode>,
   document.getElementById('root')
 );

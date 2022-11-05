@@ -2,6 +2,23 @@
   display: flex;
 }
 
+.profilNameDiv{
+  margin:25px;
+  padding-left: 30px;
+}
+.title{
+  font-size: 48px;
+  
+  padding-bottom: 60px;
+}
+.profilName{
+  font-size: 20px;
+  font-weight: normal;
+}
+.SportSee{
+  color: #FF0000;
+}
+
 .graph{
   width: 73%;
 }

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './sessions.css';
-import { getUserAverageSessions } from'../../../datas/datas';
 import {
   Tooltip,
   XAxis,

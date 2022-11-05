@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router";
-import Activity from "../components/graphe/activity";
+import Activity from "../components/graphe/activity/activity";
 import Apports from "../components/graphe/apports/apports";
 import Performance from "../components/graphe/performance/performance";
 import Score from "../components/graphe/score/score";
@@ -8,7 +8,7 @@ import Sessions from "../components/graphe/sessions/sessions";
 import Header from "../components/header/hearderNav";
 import HeaderLeft from "../components/hearderLeft/headerLeft";
 import Hello from "../components/hello/hello";
-import { getUserAverageSessions, getUserPerformance } from "../datas/datas";
+import { getUserAverageSessions, getUserPerformance, getUserInfos, getUserActivity } from "../datas/datas";
 import './style.css';
 
 function Home (){
@@ -16,9 +16,10 @@ function Home (){
   const [choice, setChoice]=useState(params.id);
   const [performance, setPerformance]= useState([]);
   const [session, setSession]= useState([]);
-  console.log(performance);
+  const [apports, setApports] = useState([]) 
+  const [activity, setActivity] = useState([]) 
+  const [scoreP, setScore] = useState([]) 
 
-  
   useEffect(()=>{
     // Performance
     const getPerformance = async () => {
@@ -55,6 +56,32 @@ function Home (){
       setSession(formatData);
     };
 
+    //apports
+    const getApports = async () => {
+      const request = await getUserInfos(choice);
+      if (!request) return alert('data error');
+      setApports(request.data.keyData);
+      console.log(request.data.keyData)
+    };
+
+    //Activity
+    const getActivity = async () => {
+      const request = await getUserActivity(choice);
+      if (!request) return alert('data error');
+      setActivity(request.data.sessions);
+    };
+
+    //Score
+    const getScore = async () => {
+      const request = await getUserInfos(choice);
+      if (!request) return alert('data error');
+      setScore(request.data.todayScore);
+      console.log(request.data.todayScore)
+    };
+
+    getScore();
+    getActivity();
+    getApports();
     getSession();
     getPerformance();
   }, []);
@@ -68,15 +95,15 @@ function Home (){
         <Hello choice={choice}/>
         <div className="state-global-div">
           <div className="graph">
-            <Activity choice={choice}/>
+            <Activity activity={activity}/>
             <div className="Sessions-Performance-Score">
               <Sessions session={session}/>
               <Performance perf={performance}/>
-              <Score choice={choice}/>
+              <Score scoreP={scoreP}/>
             </div>
           </div>
           <div>
-            <Apports choice={choice}/>
+            <Apports apports={apports}/>
           </div>
         </div>       
       </div>     

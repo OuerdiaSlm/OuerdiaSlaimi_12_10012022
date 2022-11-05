@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './activity.css';
-import ovalNoir from '../../assets/ovalNoir.png';
-import ovalRouge from '../../assets/ovalRouge.png';
-import {getUserActivity} from'../../datas/datas'
+import ovalNoir from '../../../assets/ovalNoir.png';
+import ovalRouge from '../../../assets/ovalRouge.png';
 import {
   Tooltip,
   BarChart,
@@ -13,17 +12,7 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-  function Activity({choice}) {
-    const [data, setData] = useState([]) 
-    useEffect(()=>{
-      const getData = async () => {
-        const request = await getUserActivity(choice);
-        if (!request) return alert('data error');
-        setData(request.data.sessions);
-      };
-      getData();
-    }, []);
-
+  function Activity({activity}) {
     return (
       <section className="activity-section">
         <div className="title-list">
@@ -34,7 +23,7 @@ import {
           </ul>
         </div>
         <ResponsiveContainer width="100%" height={240}>
-          <BarChart width="100%" height={240} data={data} margin={{top: 20,right: 30,left: 20,bottom: 5,}}>
+          <BarChart width="100%" height={240} data={activity} margin={{top: 20,right: 30,left: 20,bottom: 5,}}>
             <CartesianGrid vertical={false} strokeDasharray="1 1" />
             <XAxis dataKey="" tickLine={false} tick={{fontSize: 14, stroke:'#9B9EAC'}} dy={15} />
             <YAxis yAxisId="kilogram" dataKey="kilogram" type="number" domain={['dataMin - 2', 'dataMax + 1']} tickCount="3" axisLine={false} orientation="right" tickLine={false} tick={{fontSize: 14, stroke:'#9B9EAC'}} dx={15}/>

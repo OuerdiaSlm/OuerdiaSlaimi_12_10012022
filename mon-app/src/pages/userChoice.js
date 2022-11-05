@@ -1,7 +1,8 @@
 import React from "react"
 import {useState} from "react"
-import { Link , useNavigate} from "react-router-dom";
-import Home from "./home";
+import {useNavigate} from "react-router-dom";
+import Header from "../components/header/hearderNav";
+import HeaderLeft from "../components/hearderLeft/headerLeft";
 import './style.css';
 
 function UserChoice (){
@@ -14,8 +15,15 @@ function UserChoice (){
   }
   return(
     <>
-      <h1 onClick={()=>handleChoice(18)}>Cecilia</h1>
-      <h1 onClick={()=>handleChoice(12)}>Karl</h1>
+      <Header/>
+      <div className="aside">
+        <HeaderLeft/>
+        <div className="profilNameDiv">
+          <h1 className="title">Bienvenu à tous sur <span className="SportSee">SportSee</span>!</h1>
+          <h3 className="profilName" onClick={()=>handleChoice(18)}>▶ Veuillez cliquer sur "Cecilia" afin de voir les données du profile 18.</h3>
+          <h3 className="profilName" onClick={()=>handleChoice(12)}>▶ Veuillez cliquer sur "Karl" afin de voir les données du profile 12.</h3>
+        </div>
+      </div>
     </>
   )
 }
