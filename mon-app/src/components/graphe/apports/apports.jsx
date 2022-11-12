@@ -13,7 +13,6 @@ import { PropTypes } from 'prop-types';
  */
 
   function Apports({apports}) {
-    console.log(apports)
     return (
       <div className="Apports-section">   
         <div className="apports-div">

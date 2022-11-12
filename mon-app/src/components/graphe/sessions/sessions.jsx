@@ -15,7 +15,6 @@ import { PropTypes } from 'prop-types';
  */
 
   function Sessions({session}) {
-    console.log(session)
     return (
       <section className="average-sessions-section">
         <div className="session-title">

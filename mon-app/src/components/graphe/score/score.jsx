@@ -53,7 +53,7 @@ function Score({scoreP}) {
         </PieChart>
       </ResponsiveContainer>
       <div className="ScoreLegend-container">
-        <p className="ScoreLegend">{renderLabel}</p>
+        <p className="ScoreLegendNumber">{renderLabel}</p>
         <p className="ScoreLegend">
           de votre <br/>
           objectif

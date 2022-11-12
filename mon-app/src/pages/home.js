@@ -9,11 +9,14 @@ import Header from "../components/header/hearderNav";
 import HeaderLeft from "../components/hearderLeft/headerLeft";
 import Hello from "../components/hello/hello";
 import { getUserAverageSessions, getUserPerformance, getUserInfos, getUserActivity } from "../datas/datas";
+import dataMocked from "../datas/datasMocked"
 import './style.css';
+
 
 function Home (){
   const params= useParams();
   const [choice, setChoice]=useState(params.id);
+  const [userName, setUserName]= useState([]);
   const [performance, setPerformance]= useState([]);
   const [session, setSession]= useState([]);
   const [apports, setApports] = useState([]) 
@@ -21,19 +24,60 @@ function Home (){
   const [scoreP, setScore] = useState([]) 
 
   useEffect(()=>{
-    // Performance
-    const getPerformance = async () => {
-      const request = await getUserPerformance(choice);
-      if (!request) return alert('data error');
-      setPerformance(request.data.data);
-    };
+
+    // userNama
+    const getUserName = async () => {
+      const request = await getUserInfos(choice);
+      let request2;
+      if (!request) {
+        // data = dataMocked.USER_PERFORMANCE
+        dataMocked.USER_MAIN_DATA.forEach(data=>{
+          if(Number(params.id) === data.id){
+            request2=data.userInfos.firstName
+            setUserName(request2)
+          }
+        })
+      }else{
+        request2=request.data.userInfos.firstName
+      setUserName(request2);
+      }
+    }
+
+    //Activity
+    const getActivity = async () => {
+      const request = await getUserActivity(choice);
+      let request2;
+      if (!request) {
+        // data = dataMocked.USER_MAIN_DATA
+        dataMocked.USER_ACTIVITY.forEach(data=>{
+          if(Number(params.id) === data.userId){
+            request2=data.sessions
+            setActivity(request2)
+          }
+        })
+      }
+      else{
+        request2=request.data.sessions
+        setActivity(request2);
+      }
+    }
 
     //session
     const getSession = async () => {
       const request = await getUserAverageSessions(choice);
-      console.log(request)
-      if (!request) return alert('data error');
-      const formatData = request.data.sessions.map((data) => {
+      //console.log(request)
+      let request2;
+      if (!request) {
+        dataMocked.USER_AVERAGE_SESSIONS.forEach(data=>{
+          if(Number(params.id) === data.userId){
+            request2=data.sessions
+          
+          }
+        })
+      } else{
+        request2=request.data.sessions
+      }
+      const formatData = request2.map((data) => {
         switch (data.day) {
           case 1:
             return { ...data, day: 'L' };
@@ -54,36 +98,73 @@ function Home (){
         }
       });
       setSession(formatData);
-    };
+    }
 
-    //apports
-    const getApports = async () => {
-      const request = await getUserInfos(choice);
-      if (!request) return alert('data error');
-      setApports(request.data.keyData);
-      console.log(request.data.keyData)
-    };
-
-    //Activity
-    const getActivity = async () => {
-      const request = await getUserActivity(choice);
-      if (!request) return alert('data error');
-      setActivity(request.data.sessions);
-    };
+    // Performance
+    const getPerformance = async () => {
+      const request = await getUserPerformance(choice);
+      let request2;
+      if (!request) {
+        // data = dataMocked.USER_PERFORMANCE
+        dataMocked.USER_PERFORMANCE.forEach(data=>{
+          if(Number(params.id) === data.userId){
+            request2=data.data
+            setPerformance(request2)
+          }
+        })
+      }
+      else{
+        request2=request.data.data
+        setPerformance(request2);
+      }
+    }
 
     //Score
     const getScore = async () => {
       const request = await getUserInfos(choice);
-      if (!request) return alert('data error');
-      setScore(request.data.todayScore);
-      console.log(request.data.todayScore)
-    };
+      let request2;
+        if (!request) {
+          // data = dataMocked.USER_MAIN_DATA
+          dataMocked.USER_MAIN_DATA.forEach(data=>{
+            if(Number(params.id) === data.id){
+              request2=data.todayScore
+              setScore(request2)
+            }
+          })
+        }
+        else{
+          request2=request.data.todayScore
+          setScore(request2);
+        }
 
-    getScore();
+    }
+
+    //apports
+    const getApports = async () => {
+      const request = await getUserInfos(choice);
+      let request2;
+      if (!request) {
+        // data = dataMocked.USER_MAIN_DATA
+        dataMocked.USER_MAIN_DATA.forEach(data=>{
+          if(Number(params.id) === data.id){
+            request2=data.keyData
+            setApports(request2)
+          }
+        })
+      }
+      else{
+        request2=request.data.keyData
+        setApports(request2);
+      }
+    }
+
+    getUserName();
     getActivity();
-    getApports();
     getSession();
     getPerformance();
+    getScore();
+    getApports();
+    
   }, []);
 
   return (
@@ -92,7 +173,7 @@ function Home (){
     <div className="aside">
       <HeaderLeft/>
       <div className="hello-activity">
-        <Hello choice={choice}/>
+        <Hello userName={userName}/>
         <div className="state-global-div">
           <div className="graph">
             <Activity activity={activity}/>
@@ -109,7 +190,6 @@ function Home (){
       </div>     
     </div>
   </section>
-
   )
 }
 export default Home;

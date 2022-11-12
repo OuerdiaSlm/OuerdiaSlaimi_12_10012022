@@ -9,20 +9,10 @@ import { PropTypes } from 'prop-types';
  * @returns 
  */
 
-  function Hello({choice}) {
-    const [dataUser, setData] = useState([]) 
-    useEffect(()=>{
-      const getData = async () => {
-        const request = await getUserInfos(choice);
-        if (!request) return alert('data error');
-        setData(request.data.userInfos);
-      };
-      getData();
-    }, []);
-
+  function Hello({userName}) {
     return (
       <div className="hello-div">   
-        <h1 className="title">Bonjour <span className="firstName">{dataUser.firstName} </span>  </h1>
+        <h1 className="title">Bonjour <span className="firstName">{userName} </span>  </h1>
         <h2 className="message">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
       </div>
     )
@@ -30,5 +20,5 @@ import { PropTypes } from 'prop-types';
   export default Hello;
 
   Hello.propTypes = {
-    choice: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
   };
