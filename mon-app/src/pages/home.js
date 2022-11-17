@@ -22,6 +22,7 @@ function Home (){
   const [apports, setApports] = useState([]) 
   const [activity, setActivity] = useState([]) 
   const [scoreP, setScore] = useState([]) 
+  const [isMocked, setMocked] = useState(false) 
 
   useEffect(()=>{
 
