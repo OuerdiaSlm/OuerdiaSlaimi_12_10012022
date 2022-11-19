@@ -22,9 +22,26 @@ function Home (){
   const [apports, setApports] = useState([]) 
   const [activity, setActivity] = useState([]) 
   const [scoreP, setScore] = useState([]) 
-  const [isMocked, setMocked] = useState(false) 
+
+  const [disabledAPI, setDisabledAPI] = useState([]);
 
   useEffect(()=>{
+
+
+
+    //Test ouerdia
+    const getDisabledAPI = async () => {
+      const request = await getUserInfos(choice);
+      const request1= await getUserActivity(choice);
+      const request2= await getUserAverageSessions(choice);
+      const request3= await getUserPerformance(choice);
+
+      if (!request && !request1 && !request2 && !request3) {
+        let waa= " (Ceci sont des donnees mockees)"
+        setDisabledAPI(waa)
+      }
+    }
+
 
     // userNama
     const getUserName = async () => {
@@ -159,6 +176,7 @@ function Home (){
       }
     }
 
+    getDisabledAPI();
     getUserName();
     getActivity();
     getSession();
@@ -174,7 +192,7 @@ function Home (){
     <div className="aside">
       <HeaderLeft/>
       <div className="hello-activity">
-        <Hello userName={userName}/>
+        <Hello userName={userName} disabledAPI={disabledAPI} />
         <div className="state-global-div">
           <div className="graph">
             <Activity activity={activity}/>

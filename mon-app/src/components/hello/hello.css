@@ -3,6 +3,10 @@
   margin-bottom: 70px;
   margin-top: 0px;
 }
+.donneesMocked{
+  text-align: end;
+  margin: 0px;
+}
 .title{
   font-size: 48px;
 }

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './hello.css';
-import { getUserInfos } from'../../datas/datas';
 import { PropTypes } from 'prop-types';
 
 /**
@@ -9,9 +8,10 @@ import { PropTypes } from 'prop-types';
  * @returns 
  */
 
-  function Hello({userName}) {
+  function Hello({userName,disabledAPI}) {
     return (
       <div className="hello-div">   
+      <p className="donneesMocked">{disabledAPI}</p>
         <h1 className="title">Bonjour <span className="firstName">{userName} </span>  </h1>
         <h2 className="message">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
       </div>
