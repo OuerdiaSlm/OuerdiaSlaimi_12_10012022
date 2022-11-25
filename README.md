@@ -1,13 +1,15 @@
 # SportSee
-OuerdiaSlaimi_12_10012022
-![SportSee](../assets/logo.png)
+OuerdiaSlaimi_12_10012022  
+![SportSee](https://github.com/OuerdiaSlm/OuerdiaSlaimi_12_10012022/blob/master/mon-app/src/assets/logo.png?raw=true)  
+-----------
 The project 12 of the Openclassrooms "Front End" course consists in coding an application that will allow the user to track the number of sessions performed as well as the number of calories burned.
 
 ## Technologies
 - JS
-- REACT
 - CSS
-- RECHARTS
+- REACT (17.0.2)
+- RECHARTS (2.1.3)
+- NODE (14.16.1)
 
 ## Installation
 - Fork the repository.
