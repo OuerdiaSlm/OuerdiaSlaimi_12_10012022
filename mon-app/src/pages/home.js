@@ -9,7 +9,7 @@ import Header from "../components/header/hearderNav";
 import HeaderLeft from "../components/hearderLeft/headerLeft";
 import Hello from "../components/hello/hello";
 import { getUserAverageSessions, getUserPerformance, getUserInfos, getUserActivity } from "../datas/datas";
-import dataMocked from "../datas/datasMocked"
+import {DatasMocked} from "../datas/datasMockedFile"
 import './style.css';
 
 
@@ -22,57 +22,33 @@ function Home (){
   const [apports, setApports] = useState([]) 
   const [activity, setActivity] = useState([]) 
   const [scoreP, setScore] = useState([]) 
-
   const [disabledAPI, setDisabledAPI] = useState([]);
+  const [booleen, SetBoleen]=useState(true)
+ 
 
   useEffect(()=>{
 
-
-
-    //Test ouerdia
-    const getDisabledAPI = async () => {
-      const request = await getUserInfos(choice);
-      const request1= await getUserActivity(choice);
-      const request2= await getUserAverageSessions(choice);
-      const request3= await getUserPerformance(choice);
-
-      if (!request && !request1 && !request2 && !request3) {
-        let waa= " (Ceci sont des donnees mockees)"
-        setDisabledAPI(waa)
-      }
-    }
-
-
-    // userNama
+    //_______________FIRST NAME________________
     const getUserName = async () => {
       const request = await getUserInfos(choice);
       let request2;
-      if (!request) {
-        // data = dataMocked.USER_PERFORMANCE
-        dataMocked.USER_MAIN_DATA.forEach(data=>{
-          if(Number(params.id) === data.id){
-            request2=data.userInfos.firstName
-            setUserName(request2)
-          }
-        })
+      if ( booleen === true) {
+        request2= DatasMocked(choice,"USER_MAIN_DATA")
+        setUserName(request2)
+
       }else{
         request2=request.data.userInfos.firstName
       setUserName(request2);
       }
     }
 
-    //Activity
+    //_______________ACTIVITY__________________
     const getActivity = async () => {
       const request = await getUserActivity(choice);
       let request2;
-      if (!request) {
-        // data = dataMocked.USER_MAIN_DATA
-        dataMocked.USER_ACTIVITY.forEach(data=>{
-          if(Number(params.id) === data.userId){
-            request2=data.sessions
-            setActivity(request2)
-          }
-        })
+      if ( booleen === true ) {
+        request2= DatasMocked(choice,"USER_ACTIVITY")
+        setActivity(request2)
       }
       else{
         request2=request.data.sessions
@@ -80,18 +56,14 @@ function Home (){
       }
     }
 
-    //session
+    //________________SESSIONS_________________
     const getSession = async () => {
       const request = await getUserAverageSessions(choice);
-      //console.log(request)
       let request2;
-      if (!request) {
-        dataMocked.USER_AVERAGE_SESSIONS.forEach(data=>{
-          if(Number(params.id) === data.userId){
-            request2=data.sessions
-          
-          }
-        })
+      if ( booleen === true ) {
+        request2= DatasMocked(choice,"USER_AVERAGE_SESSIONS")
+        setSession(request2);
+
       } else{
         request2=request.data.sessions
       }
@@ -118,18 +90,13 @@ function Home (){
       setSession(formatData);
     }
 
-    // Performance
+    //______________PERFORMANCE________________
     const getPerformance = async () => {
       const request = await getUserPerformance(choice);
       let request2;
-      if (!request) {
-        // data = dataMocked.USER_PERFORMANCE
-        dataMocked.USER_PERFORMANCE.forEach(data=>{
-          if(Number(params.id) === data.userId){
-            request2=data.data
-            setPerformance(request2)
-          }
-        })
+      if ( booleen === true ) {
+        request2= DatasMocked(choice,"USER_PERFORMANCE")
+        setPerformance(request2)
       }
       else{
         request2=request.data.data
@@ -137,38 +104,27 @@ function Home (){
       }
     }
 
-    //Score
+    //_________________SCORE___________________
     const getScore = async () => {
       const request = await getUserInfos(choice);
       let request2;
-        if (!request) {
-          // data = dataMocked.USER_MAIN_DATA
-          dataMocked.USER_MAIN_DATA.forEach(data=>{
-            if(Number(params.id) === data.id){
-              request2=data.todayScore
-              setScore(request2)
-            }
-          })
-        }
-        else{
-          request2=request.data.todayScore
-          setScore(request2);
-        }
-
+      if ( booleen === true) {
+        request2= DatasMocked(choice,"TODAYSCORE")
+        setScore(request2)
+      }
+      else{
+        request2=request.data.todayScore
+        setScore(request2);
+      }
     }
 
-    //apports
+    //________________APPORTS__________________
     const getApports = async () => {
       const request = await getUserInfos(choice);
       let request2;
-      if (!request) {
-        // data = dataMocked.USER_MAIN_DATA
-        dataMocked.USER_MAIN_DATA.forEach(data=>{
-          if(Number(params.id) === data.id){
-            request2=data.keyData
-            setApports(request2)
-          }
-        })
+      if ( booleen === true) {
+        request2= DatasMocked(choice,"APPORTS")
+        setApports(request2)
       }
       else{
         request2=request.data.keyData
@@ -176,18 +132,32 @@ function Home (){
       }
     }
 
-    getDisabledAPI();
+
+    // When the API is not start, a alert informing that we use the data Mocked
+    const getDisabledAPI = async () => {
+      const request = await getUserInfos(choice);
+      const request1= await getUserActivity(choice);
+      const request2= await getUserAverageSessions(choice);
+      const request3= await getUserPerformance(choice);
+
+      if (!request && !request1 && !request2 && !request3) {
+        alert("Nous navons pas réussi à récuperer les données de l'API")
+       
+      }
+    }
+
     getUserName();
     getActivity();
     getSession();
     getPerformance();
     getScore();
     getApports();
+    getDisabledAPI();
     
   }, []);
 
   return (
-    <section className="wagi">
+    <section>
     <Header/>
     <div className="aside">
       <HeaderLeft/>

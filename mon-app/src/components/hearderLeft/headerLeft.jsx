@@ -8,7 +8,7 @@ import Footer from "../footer/footer";
 
   function HeaderLeft() {
     return (
-      <div className="dagi">
+      <div className="headerLeft">
         <div>
           <ul className="aside-icones">
             <li className="icon">
