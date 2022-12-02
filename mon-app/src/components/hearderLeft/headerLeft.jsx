@@ -6,6 +6,11 @@ import fitness from "../../assets/fitness.png";
 import swim from "../../assets/swim.png";
 import Footer from "../footer/footer";
 
+/**
+ * @function HeaderLeft
+ * @returns jsx
+ */
+
   function HeaderLeft() {
     return (
       <div className="headerLeft">

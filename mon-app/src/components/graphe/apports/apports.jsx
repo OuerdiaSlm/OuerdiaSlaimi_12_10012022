@@ -9,7 +9,7 @@ import { PropTypes } from 'prop-types';
 /**
  * @function Apports
  * @param { array } apports: contains user information (calorieCount-carbohydrateCount-lipidCount-proteinCount)
- * @returns 
+ * @returns jsx
  */
 
   function Apports({apports}) {

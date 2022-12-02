@@ -3,6 +3,12 @@ import './headerNav.css';
 import logo from '../../assets/logo.png';
 import {useNavigate} from "react-router-dom";
 
+
+/**
+ * @function Header
+ * @returns jsx
+ */
+
   function Header() {
     const navigate = useNavigate();
     const navigateToUserChoice = () => {

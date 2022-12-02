@@ -10,6 +10,7 @@ The project 12 of the Openclassrooms "Front End" course consists in coding an ap
 - REACT (17.0.2)
 - RECHARTS (2.1.3)
 - NODE (14.16.1)
+- Visual Studio Code(1.54.1)
 
 ## Installation
 - Fork the repository.

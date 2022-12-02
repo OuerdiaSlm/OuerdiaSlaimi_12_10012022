@@ -11,7 +11,7 @@ import { PropTypes } from 'prop-types';
 /**
  * @function Sessions
  * @param { Array } session: contains data of average-sessions (day-sessionLength)
- * @returns 
+ * @returns jsx
  */
 
   function Sessions({session}) {

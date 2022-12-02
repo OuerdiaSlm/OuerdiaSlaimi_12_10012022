@@ -6,7 +6,7 @@ import { PropTypes } from 'prop-types';
 /**
  * @function Score
  * @param { number } scoreP: contains the Todayscore of the user
- * @returns 
+ * @returns jsx
  */
 
 function Score({scoreP}) {

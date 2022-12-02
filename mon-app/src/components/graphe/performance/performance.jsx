@@ -11,7 +11,7 @@ import { PropTypes } from 'prop-types';
 /**
  * @function Performance
  * @param { array } perf: contains information of performance (cardio-energy-endurance-strength and his values)
- * @returns 
+ * @returns jsx
  */
 
   function Performance({perf}) {

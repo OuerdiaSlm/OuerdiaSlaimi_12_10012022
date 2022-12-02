@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 /**
- * Get user infos
+ * Get user infos firstName
  *
  * @param {string} id User id
  * @return {object} Response
@@ -9,7 +9,6 @@ import axios from 'axios';
 export const getUserInfos = async (id) => {
 	try {
 		const res = await axios.get(`http://localhost:3000/user/${id}`);
-		console.log(res.data.data)
 		return res.data.data.userInfos.firstName
 	} catch (e) {
 		console.log(e);
@@ -26,7 +25,6 @@ export const getUserInfos = async (id) => {
 export const getUserActivity = async (id) => {
 	try {
 		const res = await axios.get(`http://localhost:3000/user/${id}/activity`);
-		console.log(res.data.data.sessions)
 		return res.data.data.sessions
 	} catch (e) {
 		console.log(e);
@@ -72,7 +70,6 @@ export const getUserPerformance = async (id) => {
 export const getScoreInfos = async (id) => {
 	try {
 		const res = await axios.get(`http://localhost:3000/user/${id}`);
-		console.log(res.data.data)
 		return res.data.data.todayScore
 	} catch (e) {
 		console.log(e);
@@ -88,7 +85,6 @@ export const getScoreInfos = async (id) => {
  export const getApportsInfos = async (id) => {
 	try {
 		const res = await axios.get(`http://localhost:3000/user/${id}`);
-		console.log(res.data.data)
 		return res.data.data.keyData
 	} catch (e) {
 		console.log(e);
