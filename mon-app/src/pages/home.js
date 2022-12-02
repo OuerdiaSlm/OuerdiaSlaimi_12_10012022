@@ -8,10 +8,10 @@ import Sessions from "../components/graphe/sessions/sessions";
 import Header from "../components/header/hearderNav";
 import HeaderLeft from "../components/hearderLeft/headerLeft";
 import Hello from "../components/hello/hello";
-import { getUserAverageSessions, getUserPerformance, getUserInfos, getUserActivity } from "../datas/datas";
+import { getUserAverageSessions, getUserPerformance, getUserInfos, getUserActivity, getScoreInfos, getApportsInfos } from "../datas/datas";
 import {DatasMocked} from "../datas/datasMockedFile"
+import NotFound from "./notFound";
 import './style.css';
-
 
 function Home (){
   const params= useParams();
@@ -27,18 +27,20 @@ function Home (){
  
 
   useEffect(()=>{
-
+    
     //_______________FIRST NAME________________
     const getUserName = async () => {
       const request = await getUserInfos(choice);
       let request2;
+      if(!request){
+        window.location.href = 'http://localhost:3001/error';
+      }
       if ( booleen === true) {
+        request2=request
+        setUserName(request2);
+      } else{
         request2= DatasMocked(choice,"USER_MAIN_DATA")
         setUserName(request2)
-
-      }else{
-        request2=request.data.userInfos.firstName
-      setUserName(request2);
       }
     }
 
@@ -47,12 +49,11 @@ function Home (){
       const request = await getUserActivity(choice);
       let request2;
       if ( booleen === true ) {
-        request2= DatasMocked(choice,"USER_ACTIVITY")
-        setActivity(request2)
-      }
-      else{
-        request2=request.data.sessions
+        request2 = request
         setActivity(request2);
+      } else{
+        request2 = DatasMocked(choice,"USER_ACTIVITY")
+        setActivity(request2)
       }
     }
 
@@ -61,11 +62,10 @@ function Home (){
       const request = await getUserAverageSessions(choice);
       let request2;
       if ( booleen === true ) {
+        request2=request
+      } else{
         request2= DatasMocked(choice,"USER_AVERAGE_SESSIONS")
         setSession(request2);
-
-      } else{
-        request2=request.data.sessions
       }
       const formatData = request2.map((data) => {
         switch (data.day) {
@@ -95,40 +95,40 @@ function Home (){
       const request = await getUserPerformance(choice);
       let request2;
       if ( booleen === true ) {
-        request2= DatasMocked(choice,"USER_PERFORMANCE")
-        setPerformance(request2)
+        request2=request
+        setPerformance(request2);
       }
       else{
-        request2=request.data.data
-        setPerformance(request2);
+        request2= DatasMocked(choice,"USER_PERFORMANCE")
+        setPerformance(request2)
       }
     }
 
     //_________________SCORE___________________
     const getScore = async () => {
-      const request = await getUserInfos(choice);
+      const request = await getScoreInfos(choice);
       let request2;
       if ( booleen === true) {
-        request2= DatasMocked(choice,"TODAYSCORE")
-        setScore(request2)
+        request2=request
+        setScore(request2);
       }
       else{
-        request2=request.data.todayScore
-        setScore(request2);
+        request2= DatasMocked(choice,"TODAYSCORE")
+        setScore(request2)
       }
     }
 
     //________________APPORTS__________________
     const getApports = async () => {
-      const request = await getUserInfos(choice);
+      const request = await getApportsInfos(choice);
       let request2;
       if ( booleen === true) {
-        request2= DatasMocked(choice,"APPORTS")
-        setApports(request2)
+        request2=request
+        setApports(request2);
       }
       else{
-        request2=request.data.keyData
-        setApports(request2);
+        request2= DatasMocked(choice,"APPORTS")
+        setApports(request2)
       }
     }
 
@@ -142,6 +142,7 @@ function Home (){
 
       if (!request && !request1 && !request2 && !request3) {
         alert("Nous navons pas réussi à récuperer les données de l'API")
+        {<NotFound/>}
        
       }
     }

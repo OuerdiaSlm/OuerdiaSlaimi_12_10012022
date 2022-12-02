@@ -5,6 +5,7 @@ import { PropTypes } from 'prop-types';
 /**
  * @function Hello
  * @param { number } choice: profile id (18/12)
+ * @param { userName } string
  * @returns 
  */
 

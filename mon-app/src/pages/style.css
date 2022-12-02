@@ -1,5 +1,6 @@
 .aside{
   display: flex;
+  max-height: 3000PX;
 }
 
 .profilNameDiv{

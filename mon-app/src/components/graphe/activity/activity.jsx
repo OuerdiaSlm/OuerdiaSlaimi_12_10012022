@@ -16,7 +16,7 @@ import { PropTypes } from 'prop-types';
 /**
  * @function Activity
  * @param { array } activity: contains data of daily activity (day-kilogram-calories)
- * @returns 
+ * @return jsx
  */
 
   function Activity({activity}) {
