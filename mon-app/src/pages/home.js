@@ -84,7 +84,7 @@ function Home (){
         console.log(data.sessionLength)
         switch (data.day) {
           case 1:
-            return { day: 'L', ...data };
+            return { ...data, day: 'L' };
           case 2:
             return { ...data, day: 'M' };
           case 3:

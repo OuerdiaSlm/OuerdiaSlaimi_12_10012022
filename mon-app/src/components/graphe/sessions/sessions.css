@@ -14,6 +14,9 @@
   align-items: center;
 }
 .average-sessions-title{
+  position: absolute;
+  margin: auto;
+  margin-bottom: 20px;
   color: white;
   opacity: 50.4% ;
   height: 48px;
