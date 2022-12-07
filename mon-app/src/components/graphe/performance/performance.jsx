@@ -12,14 +12,14 @@ import { PropTypes } from 'prop-types';
 
 const TransformKind = (tickItem) => {
   const Kind = [
-    'Cardio',
-    'Energie',
-    'Endurance',
-    'Force',
-    'Vitesse',
     'Intensité',
+    'Vitesse',
+    'Force',
+    'Endurance',
+    'Energie',
+    'Cardio',
   ];
-  if (tickItem) return Kind[tickItem];
+  if (tickItem) return Kind[tickItem -1];
 };
 
 

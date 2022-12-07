@@ -21,8 +21,7 @@ function Home (){
   const [apports, setApports] = useState([]) 
   const [activity, setActivity] = useState([]) 
   const [scoreP, setScore] = useState([]) 
-  const [disabledAPI, setDisabledAPI] = useState([]);
-  const [booleen, SetBoleen]=useState(false)
+  const [booleen, SetBoleen]=useState(true)
  
  
   useEffect(()=>{
@@ -79,9 +78,6 @@ function Home (){
         window.location.href = 'http://localhost:3001/error';
       }
       const formatData = request2.map((data) => {
-        console.log(data)
-        console.log(data.day)
-        console.log(data.sessionLength)
         switch (data.day) {
           case 1:
             return { ...data, day: 'L' };
@@ -158,54 +154,38 @@ function Home (){
       }
     }
 
-    /*
-    // When the API is not start, a alert informing that we use the data Mocked
-    const getDisabledAPI = async () => {
-      const request = await getUserInfos(choice);
-      const request1= await getUserActivity(choice);
-      const request2= await getUserAverageSessions(choice);
-      const request3= await getUserPerformance(choice);
-
-      if (!request && !request1 && !request2 && !request3 && booleen===true) {
-        alert("Nous navons pas réussi à récuperer les données de l'API")
-        window.location.href = 'http://localhost:3001/error';
-      }
-    }
-    */
-
     getUserName();
     getActivity();
     getSession();
     getPerformance();
     getScore();
     getApports();
-    //getDisabledAPI();
-    
+
   }, []);
 
   return (
     <section>
-    <Header/>
-    <div className="aside">
-      <HeaderLeft/>
-      <div className="hello-activity">
-        <Hello userName={userName} disabledAPI={disabledAPI} />
-        <div className="state-global-div">
-          <div className="graph">
-            <Activity activity={activity}/>
-            <div className="Sessions-Performance-Score">
-              <Sessions session={session}/>
-              <Performance perf={performance}/>
-              <Score scoreP={scoreP}/>
+      <Header/>
+      <div className="aside">
+        <HeaderLeft/>
+        <div className="hello-activity">
+          <Hello userName={userName} />
+          <div className="state-global-div">
+            <div className="graph">
+              <Activity activity={activity}/>
+              <div className="Sessions-Performance-Score">
+                <Sessions session={session}/>
+                <Performance perf={performance}/>
+                <Score scoreP={scoreP}/>
+              </div>
             </div>
-          </div>
-          <div>
-            <Apports apports={apports}/>
-          </div>
-        </div>       
-      </div>     
-    </div>
-  </section>
+            <div>
+              <Apports apports={apports}/>
+            </div>
+          </div>       
+        </div>     
+      </div>
+    </section>
   )
 }
 export default Home;

@@ -1,7 +1,8 @@
 .average-sessions-section{
   background-color: #ff0000;
   height: 263px;
-  width: 258px;
+  max-width: 258px;
+  width: 100%;
   left: 0px;
   top: 0px;
   border-radius: 5px;

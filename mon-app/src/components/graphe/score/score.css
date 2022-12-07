@@ -1,6 +1,7 @@
 .ScoreContainer{
   height: 263px;
-  width: 258px;
+  max-width: 258px;
+  width: 100%;
   position: relative;
   left: 0px;
   top: 0px;

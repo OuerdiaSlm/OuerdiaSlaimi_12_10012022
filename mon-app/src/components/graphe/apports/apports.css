@@ -8,7 +8,8 @@
 }
 .apports-div {
   height: 124px;
-  width: 258px;
+  max-width: 258px;
+  width: 100%;
   left: 0px;
   top: 0px;
   border-radius: 5px;
@@ -65,7 +66,7 @@
   background-color: #FD51811A;
 }
 
-@media screen and (max-width:1438px)and (min-width:600px){
+@media screen and (max-width:1438px)and (min-width:100px){
   .Apports-section{
     flex-direction: row;
     margin-left: 0px;
