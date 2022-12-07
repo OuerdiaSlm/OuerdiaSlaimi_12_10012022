@@ -19,8 +19,6 @@ const CustomTooltip = ({ active, payload }) => {
           fontWeight: 500,
           textAlign: 'center',
           padding: 10,
-          height: 15,
-          width: 40,    
         }}
       >
         <p>{`${payload[0].value} min`}</p>
