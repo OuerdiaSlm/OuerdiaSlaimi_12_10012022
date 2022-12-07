@@ -24,6 +24,7 @@ The project 12 of the Openclassrooms "Front End" course consists in coding an ap
 
 ### Application
 - The `cd mon-app` command will allow you to go move to directory.
+- The `npm install` command will allow you to install the dependencies.
 - The `npm start` command will allow you to run the application in port http://localhost:3001/
 
 ## Documents
